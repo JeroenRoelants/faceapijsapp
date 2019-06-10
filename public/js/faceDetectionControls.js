@@ -97,11 +97,13 @@ async function changeFaceDetector(detector) {
   faceDetectorSelect.val(detector)
   faceDetectorSelect.material_select()
 
+  $('#loader').show()
   if (!isFaceDetectionModelLoaded()) {
     await getCurrentFaceDetectionNet().load('/')
   }
 
   $(`#${detector}_controls`).show()
+  $('#loader').hide()
 }
 
 async function onSelectedFaceDetectorChanged(e) {

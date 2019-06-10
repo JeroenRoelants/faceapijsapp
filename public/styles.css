@@ -7,7 +7,7 @@
   display: inline-flex !important;
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
   .page-container {
     padding-left: 0;
     display: flex !important;
@@ -22,12 +22,17 @@
   flex-wrap: wrap;
 }
 
+.input field {
+  vertical-align: middle;
+}
+
 .side-by-side {
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
 }
-.side-by-side >* {
+.side-by-side > * {
   margin: 0 5px;
 }
 
@@ -51,15 +56,8 @@
   padding: 0 8px !important;
 }
 
-#github-link {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid;
-  margin-bottom: 10px;
-}
-
-#overlay, .overlay {
+#overlay,
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -67,4 +65,48 @@
 
 #facesContainer canvas {
   margin: 10px;
+}
+
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #a9a9a9 !important;
+}
+
+table caption {
+  padding: 0.5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+th {
+  text-align: center;
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+
+td,
+tr {
+  text-align: center;
+  border: 1px solid #ddd !important;
+}
+
+td,
+th {
+  width: 5em;
+}
+
+.controls {
+  margin-top: 40px;
 }

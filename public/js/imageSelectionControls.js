@@ -7,7 +7,12 @@ async function onSelectedImageChanged(uri) {
 async function loadImageFromUrl(url) {
   const img = await requestExternalImage($('#imgUrlInput').val())
   $('#inputImg').get(0).src = img.src
-  updateResults()
+
+  $('#loader').show()
+  await updateResults()
+  $('#loader').hide()
+
+  
 }
 
 function renderImageSelectList(selectListId, onChange, initialValue, withFaceExpressionImages) {
@@ -44,13 +49,22 @@ function renderImageSelectList(selectListId, onChange, initialValue, withFaceExp
 }
 
 function initImageSelectionControls(initialValue = 'bbt1.jpg', withFaceExpressionImages = false) {
-  renderImageSelectList(
+  /*renderImageSelectList(
     '#selectList',
     async (uri) => {
       await onSelectedImageChanged(uri)
     },
     initialValue,
     withFaceExpressionImages
-  )
+  )*/
   onSelectedImageChanged($('#selectList select').val())
+}
+
+async function uploadImage(e) {
+  const imgFile = $('#ImgUploadInput').get(0).files[0]
+  const img = await faceapi.bufferToImage(imgFile)
+  $('#inputImg').get(0).src = img.src
+  $('#loader').show()
+  await updateResults()
+  $('#loader').hide()
 }
